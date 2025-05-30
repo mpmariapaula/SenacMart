@@ -1,0 +1,1 @@
+Sistema desenvolvido para apoiar turmas na construção de habilidades essenciais para a operação de caixa e o atendimento ao cliente. Por meio de simulações de vendas, oferece suporte à imersão em ambientes e situações reais de trabalho, proporcionando uma experiência prática e eficaz.
