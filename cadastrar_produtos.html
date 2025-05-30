@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastrar Produto</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="cadastrar">
+  <img src="image/logo_transparente.png" alt="" class="logo">
+  <div class="novos_produtos">
+    <h2>Cadastrar Novo Produto</h2>
+    <div class="cadastro">
+      <form action="cadastrar_produtos.php" method="POST">
+        <label class="cod_barras">Código de Barras:</label>
+        <input type="text" name="codigo" required><br><br>
+        
+        <label>Descrição do produto:</label><br>
+        <input class="input-tela-cadastro" type="text" name="nome" required><br><br>
+    
+        <label>Preço:</label><br>
+        <input class="input-tela-cadastro" type="number" name="preco" step="0.01" required><br><br>
+    
+        <button type="submit" class="botao botao-cadastrar">Cadastrar</button>
+      </form>
+    </div>
+    <br>
+    <a href="index.html">← Voltar para Vendas</a>
+  </div>
+</body>
+</html>

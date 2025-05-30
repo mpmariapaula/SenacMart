@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>Caixa Supermercado</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="caixa">
+        <img src="image/logo_transparente.png" alt="" class="logo">
+        
+        <div class="simulador">
+            <h1>Simulador de Caixa</h1>
+            <input type="text" id="codigo" placeholder="Código de barras ou nome">
+            <button onclick="buscarProduto()" class="botao botao-adicionar">Adicionar</button>
+            <table id="carrinho">
+                <thead><tr><th>Produto</th><th>Preço</th><th>Qtd</th><th>Total</th><th>Ação</th></tr></thead>
+                <tbody></tbody>
+            </table>
+            <h3>Total: R$ <span id="total">0.00</span></h3>
+            <div class="acoes">
+                <button class="botao botao-close"><a href="login.html"><i class="fa fa-close"></i> Close </a></button>
+                <button onclick="finalizarVenda()" class="botao botao-fechar-compra"><i class="fa fa-check"></i> Finalizar Venda</button>
+                <div id="recibo"></div>
+            </div>
+            
+        </div>
+
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
