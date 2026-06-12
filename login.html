@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Login - Caixa</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SenacMart — Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="login">
-        <img src="image/logo_transparent.png" alt="Logo do Sistema">
-        <div class="login-container">
-            <h2>Login do Operador</h2>
-            <form action="login.php" method="POST">
-                <input type="text" name="nome" placeholder="Nome do operador" required>
-                <button type="submit" class="botao botao-login">Entrar</button>
-            </form>
-            
+  <div class="login-page">
+    <div class="login-box">
+      <div class="login-logo">SenacMart</div>
+      <div class="login-sub">Sistema de simulação de caixa</div>
+
+      <h2>Identificação do operador</h2>
+
+      <form action="login.php" method="POST">
+        <div class="login-campo">
+          <label for="nome">Seu nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Ex: Ana Silva" required autofocus>
         </div>
+        <button type="submit" class="btn btn-primario">Entrar no caixa</button>
+      </form>
+
+      <p class="login-rodape">Informe seu nome para registrar as vendas corretamente.</p>
     </div>
+  </div>
 </body>
 </html>

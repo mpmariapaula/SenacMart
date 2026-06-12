@@ -1,35 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<meta charset="UTF-8">
 <head>
-    <meta charset="UTF-8">
-    <title>Caixa Supermercado</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SenacMart — Caixa</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="caixa">
-        <img src="image/logo_transparente.png" alt="" class="logo">
-        
-        <div class="simulador">
-            <h1>Simulador de Caixa</h1>
-            <input type="text" id="codigo" placeholder="Código de barras ou nome">
-            <button onclick="buscarProduto()" class="botao botao-adicionar">Adicionar</button>
-            <table id="carrinho">
-                <thead><tr><th>Produto</th><th>Preço</th><th>Qtd</th><th>Total</th><th>Ação</th></tr></thead>
-                <tbody></tbody>
-            </table>
-            <h3>Total: R$ <span id="total">0.00</span></h3>
-            <div class="acoes">
-                <button class="botao botao-close"><a href="login.html"><i class="fa fa-close"></i> Close </a></button>
-                <button onclick="finalizarVenda()" class="botao botao-fechar-compra"><i class="fa fa-check"></i> Finalizar Venda</button>
-                <div id="recibo"></div>
-            </div>
-            
-        </div>
 
-        
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+    <div class="cabecalho-esq">
+      <span class="logo-texto">SenacMart</span>
+      <span class="cabecalho-titulo">Caixa</span>
     </div>
-    <script src="script.js"></script>
+    <div class="cabecalho-dir">
+      <?php if (isset($_SESSION['operador'])): ?>
+        <span class="operador-badge">&#128100; <?php echo htmlspecialchars($_SESSION['operador']); ?></span>
+      <?php endif; ?>
+      <a href="login.html"><button class="btn-sair">Sair</button></a>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="caixa-wrapper">
+    <div class="card">
+
+      <!-- BUSCA -->
+      <div class="caixa-busca-row">
+        <input
+          type="text"
+          id="codigo"
+          placeholder="Código de barras ou nome do produto"
+          autocomplete="off"
+        >
+        <button class="btn btn-primario" onclick="buscarProduto()">+ Adicionar</button>
+      </div>
+
+      <!-- MENSAGEM DE ERRO/SUCESSO -->
+      <div id="mensagem" style="display:none"></div>
+
+      <!-- TABELA DO CARRINHO -->
+      <div style="overflow-x:auto">
+        <table class="tabela-base" id="carrinho">
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Preço unit.</th>
+              <th>Qtd</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- linhas inseridas pelo script.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CARRINHO VAZIO (oculto quando há itens) -->
+      <div class="carrinho-vazio" id="carrinho-vazio">
+        Nenhum produto adicionado ainda.<br>
+        <small>Digite o código de barras ou nome do produto acima.</small>
+      </div>
+
+      <!-- TOTAL -->
+      <div class="total-row">
+        <span class="total-label">Total da venda</span>
+        <span class="total-valor">R$ <span id="total">0,00</span></span>
+      </div>
+
+      <!-- AÇÕES -->
+      <div class="caixa-footer">
+        <a href="login.html"><button class="btn btn-perigo">Sair</button></a>
+        <button class="btn btn-sucesso" onclick="finalizarVenda()">&#10003; Finalizar venda</button>
+      </div>
+
+    </div><!-- /.card -->
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

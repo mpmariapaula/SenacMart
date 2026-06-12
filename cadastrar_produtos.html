@@ -2,29 +2,59 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Cadastrar Produto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SenacMart — Cadastrar Produto</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="cadastrar">
-  <img src="image/logo_transparente.png" alt="" class="logo">
-  <div class="novos_produtos">
-    <h2>Cadastrar Novo Produto</h2>
-    <div class="cadastro">
-      <form action="cadastrar_produtos.php" method="POST">
-        <label class="cod_barras">Código de Barras:</label>
-        <input type="text" name="codigo" required><br><br>
-        
-        <label>Descrição do produto:</label><br>
-        <input class="input-tela-cadastro" type="text" name="nome" required><br><br>
-    
-        <label>Preço:</label><br>
-        <input class="input-tela-cadastro" type="number" name="preco" step="0.01" required><br><br>
-    
-        <button type="submit" class="botao botao-cadastrar">Cadastrar</button>
-      </form>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+    <div class="cabecalho-esq">
+      <span class="logo-texto">SenacMart</span>
+      <span class="cabecalho-titulo">Cadastro de produtos</span>
     </div>
-    <br>
-    <a href="index.html">← Voltar para Vendas</a>
-  </div>
+    <div class="cabecalho-dir">
+      <a href="index.html"><button class="btn-sair">&#8592; Voltar ao caixa</button></a>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="cadastro-wrapper">
+    <div class="card">
+      <h2>Cadastrar novo produto</h2>
+
+      <?php if (!empty($_GET['sucesso'])): ?>
+        <div class="alerta alerta-ok">Produto cadastrado com sucesso!</div>
+      <?php endif; ?>
+
+      <?php if (!empty($_GET['erro'])): ?>
+        <div class="alerta alerta-erro">Erro ao cadastrar produto. Tente novamente.</div>
+      <?php endif; ?>
+
+      <form action="cadastrar_produtos.php" method="POST">
+
+        <div class="campo-grupo">
+          <label for="codigo">Código de barras</label>
+          <input type="text" id="codigo" name="codigo" placeholder="Ex: 7891234567890" required autofocus>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="nome">Descrição do produto</label>
+          <input type="text" id="nome" name="nome" placeholder="Ex: Arroz Tio João 5kg" required>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="preco">Preço (R$)</label>
+          <input type="number" id="preco" name="preco" step="0.01" min="0" placeholder="Ex: 22.50" required>
+        </div>
+
+        <button type="submit" class="btn btn-primario">Salvar produto</button>
+      </form>
+
+      <a href="index.html" class="link-voltar">&#8592; Voltar ao caixa</a>
+    </div>
+  </main>
+
 </body>
 </html>
